@@ -12,8 +12,19 @@
 */
 use Illuminate\Http\Request;
 Route::get('/', 'Client\HomeController@index')->name('homepage');
-Route::get('product-add', 'Client\HomeController@add')->name('product.add');
-Route::get('product/update/{id}', 'Client\HomeController@update')->name('product.update');
-Route::get('product/remove/{id}', 'Client\HomeController@remove')->name('product.remove');
-Route::post('product/save', 'Client\HomeController@save')->name('product.save');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('product-add', 'Client\HomeController@add')->name('product.add');
+	Route::get('product/update/{id}', 'Client\HomeController@update')->name('product.update');
+	Route::get('product/remove/{id}', 'Client\HomeController@remove')->name('product.remove');
+	Route::post('product/save', 'Client\HomeController@save')->name('product.save');
+});
+
+
+Route::get('login', 'Auth\LoginController@login')->name('login');
+Route::post('login', 'Auth\LoginController@postLogin');
+
+Route::any('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+
 

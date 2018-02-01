@@ -7,6 +7,10 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
+	@auth
+	    <h2>hello, Mr. {{Auth::user()->name}}</h2>
+	    <a href="{{ route('logout') }}" title="">Logout</a>
+	@endauth
 	<form action="" method="get">
 		<input type="text" name="keyword" value="{{old('keyword', $keyword)}}" placeholder="">
 		<button type="submit">search</button>
