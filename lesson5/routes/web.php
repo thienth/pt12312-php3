@@ -11,8 +11,9 @@
 |
 */
 use Illuminate\Http\Request;
-Route::get('/', 'Client\HomeController@index')->name('homepage');
-Route::group(['middleware' => 'auth'], function() {
+Route::get('/', 'Client\HomeController@index')
+		->name('homepage');
+Route::group(['middleware' => ['auth', 'mod.check']], function() {
     Route::get('product-add', 'Client\HomeController@add')->name('product.add');
 	Route::get('product/update/{id}', 'Client\HomeController@update')->name('product.update');
 	Route::get('product/remove/{id}', 'Client\HomeController@remove')->name('product.remove');

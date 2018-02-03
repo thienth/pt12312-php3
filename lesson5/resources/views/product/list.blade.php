@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
+	{{$pt12312}}
 	@auth
 	    <h2>hello, Mr. {{Auth::user()->name}}</h2>
 	    <a href="{{ route('logout') }}" title="">Logout</a>

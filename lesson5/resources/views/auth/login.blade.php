@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
+	{{$sieuxayda}}
 	<form action="{{ route('login') }}" method="post">
 		{{csrf_field()}}
 		@if (session('errMsg') != "")
