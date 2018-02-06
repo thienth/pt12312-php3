@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
-
+use Mail;
 
 class HomeController extends Controller
 {
@@ -49,4 +49,19 @@ class HomeController extends Controller
       }
       return redirect()->back();
    	}
+
+    public function sendMail($msg){
+      Mail::send('emails.welcome', compact('msg'), function ($message) {
+
+          $message->from('thienth32@gmail.com', 'Learning Laravel');
+
+          $message->to([
+            'thienth@fpt.edu.vn', 
+            'hieuvmph04812@fpt.edu.vn'
+          ])->subject('Learning Laravel test email');
+
+      });
+
+      return "Your email has been sent successfully";
+    }
 }

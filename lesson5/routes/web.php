@@ -26,6 +26,6 @@ Route::post('login', 'Auth\LoginController@postLogin');
 
 Route::any('logout', 'Auth\LoginController@logout')->name('logout');
 
-
+Route::get('send-mail/{msg}', 'Client\HomeController@sendMail');
 
 
