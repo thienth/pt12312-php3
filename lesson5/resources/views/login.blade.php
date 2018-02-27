@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	{{$sieuxayda}}
 	<form action="{{route('login')}}" method="post" >
 		@if(session("errMsg"))
 			<span style="color: red">{{session('errMsg')}}</span>
